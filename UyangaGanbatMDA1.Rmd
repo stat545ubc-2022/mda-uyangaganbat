@@ -22,6 +22,7 @@ output: github_document
 library(datateachr)
 library(tidyverse)
 library(scales)
+library(ggplot2)
 
 ```
 
@@ -116,16 +117,10 @@ glimpse(vancouver_trees)
 1. *apt_buildings*: It seems interesting to explore about buildings and amenities. 
 2. *vancouver_trees*: I liked that it doesn't have a lot of variables. Interesting to figure out what kind of trees were planted around which neighbourhoods. 
 
-
-
 ```{r}
 
 glimpse(apt_buildings)
-glimpse(building_permits)
-glimpse(parking_meters)
 glimpse(vancouver_trees)
-
-
 
 ```
   <!----------------------------------------------------------------------------->
@@ -190,10 +185,11 @@ filter(apt_buildings, no_of_storeys>10)
 
 My research questions: 
 
-1. I want to know if number of units is correlated with number of storeys.  
-2. After creating a new variable that categorizes the number of storeys, I want to know how which category has more exterior fire escapes. 
-3. I want to create a 2x2 table with the building number of exterior fire escape and emergency power to to find out what proportion of the buildings have both emergency power and exterior fire escape. 
-4. After categorizing the number of units into 2 categories, if it's correlated with number of storeys. 
+1. How many buildings have below 50 units and above 50 units? 
+2. I want to know if number of units is correlated with number of storeys.  
+3. After creating a new variable that categorizes the number of storeys, I want to know how which category has more exterior fire escapes.
+4. I want to create a 2x2 table with the building number of exterior fire escape and emergency power to to find out what proportion of the buildings have both emergency power and exterior fire escape. 
+
 
 
 # Task 4: Process and summarize your data (13 points)
@@ -222,87 +218,7 @@ Ensure that the output of each operation is printed!
 
 Make sure it's clear what research question you are doing each operation for!
                                                                                                                                 <!------------------------- Start your work below ----------------------------->
-                                                                                                            **Research question 1. I want to know if number of units is correlated with number of storeys. **
-*Summarizing*
-*Compute the "range", "mean", and "two other summary statistics" of "one numerical variable" across the groups of "one categorical variable" from your data.*
-```{r}  
-
-range(apt_buildings$no_of_units)
-summary(apt_buildings$no_of_units)
-quantile(apt_buildings$no_of_units)
-
-table(apt_buildings$no_of_units_cat)
-round(prop.table(table(apt_buildings$no_of_units_cat))*100, 2)
-
-```                                                                                                         
-
-*Graphing*
-*6.  Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.*
-
-```{}
-
-ggplot(apt_buildings) +
-  geom_point(aes(no_of_units, no_of_storeys, alpha=0.5)) +
-  scale_x_log10(label=label_number(suffix = " units"))
-
-ggplot(apt_buildings) +
-  geom_point(aes(no_of_units, no_of_storeys, alpha=0.5))
-
-```
-                                                                                                            **Research question 2. After creating a new variable that categorizes the number of storeys, I want to know which category has more exterior fire escapes. **                                                                                                    
-*Summarizing*                
-*3.  Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! An example: age in years into "child, teen, adult, senior".*
-<!----------------------------------------------------------------------------->
-```{r}
-summary(apt_buildings$no_of_storeys)
-table(apt_buildings$no_of_storeys)
-
-apt_buildings$no_of_storeys_cat <- 
-  ifelse(apt_buildings$no_of_storeys < 5,"1. Less_than_5_stories",
-    ifelse(apt_buildings$no_of_storeys < 10,"2. 5-10_stories", 
-       ifelse(apt_buildings$no_of_storeys < 20,"3. 10-20_stories", "4. Above_30_stories")))
-
-table(apt_buildings$no_of_storeys_cat)
-
-```
-
-*Graphing*
-*7.  Make a graph where it makes sense to customize the alpha transparency.*
-```{}
-
-ggplot(apt_buildings, aes(no_of_storeys_cat, year_built)) + 
-    geom_jitter(width=0.1, alpha = 0.3)
-
-```
-
-**Research question 3. I want to create a 2x2 table with the building number of exterior fire escape and emergency power to to find out what proportion of the buildings have both emergency power and exterior fire escape. **
-
-*Summarizing*
-*1.  Compute the "range", "mean", and "two other summary statistics" of "one numerical variable" across the groups of "one categorical variable" from your data.*
-```{}
-table(apt_buildings$exterior_fire_escape, apt_buildings$emergency_power)
-prop.table(table(apt_buildings$exterior_fire_escape, apt_buildings$emergency_power))*100
-
-```
- 
-*Graphing* 
-*8.  Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.*
-```{}
- 
-ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
-   geom_histogram(position="stack", binwidth=20)
-    
-ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
-   geom_histogram(position="stack", binwidth=10)    
-
-ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
-   geom_histogram(position="stack", binwidth=1) 
-
-```
-
-I chose binwidth 10, because it looks better and gives me a bar representing each 10 year. 
-
-**Research question 4: After categorizing the number of units into 2 categories, if it's correlated with number of storeys. **
+**Research question 1: How many buildings have below 50 units and above 50 units? **
 
 *Summarizing*
 *3.  Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! An example: age in years into "child, teen, adult, senior".*
@@ -321,7 +237,7 @@ table(apt_buildings$no_of_units_cat)
 *Graphing*
 *Create a graph out of summarized variables that has at least two geom layers.*
 Note: I am not sure if it's layer or not. So just in case I created another histogram to get my points. 
-```{}
+```{r}
 
 ggplot(apt_buildings, aes(x = year_built)) + 
     geom_density(aes(group=no_of_units_cat, colour=no_of_units_cat))
@@ -329,7 +245,7 @@ ggplot(apt_buildings, aes(x = year_built)) +
 ```
 
 
-```{}
+```{r}
 ggplot(apt_buildings, aes(x=year_built, fill=no_of_units_cat)) +
    geom_histogram(position="stack", binwidth=30, color="black")
     
@@ -340,6 +256,89 @@ ggplot(apt_buildings, aes(x=year_built, fill=no_of_units_cat)) +
    geom_histogram(position="stack", binwidth=5, color="black")
 
 ```
+
+
+
+**Research question 2. I want to know if number of units is correlated with number of storeys. **
+*Summarizing*
+*Compute the "range", "mean", and "two other summary statistics" of "one numerical variable" across the groups of "one categorical variable" from your data.*
+```{r}  
+
+range(apt_buildings$no_of_units)
+summary(apt_buildings$no_of_units)
+quantile(apt_buildings$no_of_units)
+
+table(apt_buildings$no_of_units_cat)
+round(prop.table(table(apt_buildings$no_of_units_cat))*100, 2)
+
+```                                                                                                         
+
+*Graphing*
+*6.  Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.*
+
+```{r}
+
+ggplot(apt_buildings) +
+  geom_point(aes(no_of_units, no_of_storeys, alpha=0.5)) +
+  scale_x_log10(label=label_number(suffix = " units"))
+
+ggplot(apt_buildings) +
+  geom_point(aes(no_of_units, no_of_storeys, alpha=0.5))
+
+```
+**Research question 3. After creating a new variable that categorizes the number of storeys, I want to know which category has more exterior fire escapes. **                                                                                                    
+*Summarizing*                
+*3.  Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! An example: age in years into "child, teen, adult, senior".*
+<!----------------------------------------------------------------------------->
+```{r}
+summary(apt_buildings$no_of_storeys)
+table(apt_buildings$no_of_storeys)
+
+apt_buildings$no_of_storeys_cat <- 
+  ifelse(apt_buildings$no_of_storeys < 5,"1. Less_than_5_stories",
+    ifelse(apt_buildings$no_of_storeys < 10,"2. 5-10_stories", 
+       ifelse(apt_buildings$no_of_storeys < 20,"3. 10-20_stories", "4. Above_30_stories")))
+
+table(apt_buildings$no_of_storeys_cat)
+
+```
+
+*Graphing*
+*7.  Make a graph where it makes sense to customize the alpha transparency.*
+```{r}
+
+ggplot(apt_buildings, aes(no_of_storeys_cat, year_built)) + 
+    geom_jitter(width=0.1, alpha = 0.3)
+
+```
+
+**Research question 4. I want to create a 2x2 table with the building number of exterior fire escape and emergency power to to find out what proportion of the buildings have both emergency power and exterior fire escape. **
+
+*Summarizing*
+*1.  Compute the "range", "mean", and "two other summary statistics" of "one numerical variable" across the groups of "one categorical variable" from your data.*
+```{r}
+table(apt_buildings$exterior_fire_escape, apt_buildings$emergency_power)
+prop.table(table(apt_buildings$exterior_fire_escape, apt_buildings$emergency_power))*100
+
+```
+ 
+*Graphing* 
+*8.  Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.*
+```{r}
+ 
+ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
+   geom_histogram(position="stack", binwidth=20)
+    
+ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
+   geom_histogram(position="stack", binwidth=10)    
+
+ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
+   geom_histogram(position="stack", binwidth=1) 
+
+```
+
+I chose binwidth 10, because it looks better and gives me a bar representing each 10 year. 
+
 
 
 ### 1.2 (3 points)

@@ -46,6 +46,10 @@ library(scales)
     ## 
     ##     col_factor
 
+``` r
+library(ggplot2)
+```
+
 3.  Make a repository in the <https://github.com/stat545ubc-2022>
     Organization. You will be working with this repository for the
     entire data analysis project. You can either make it public, or make
@@ -357,56 +361,6 @@ glimpse(apt_buildings)
     ## $ facilities_available             <chr> "Recycling bins", "Green Bin / Organi…
     ## $ cooling_room                     <chr> "NO", "NO", "NO", "NO", "NO", "NO", "…
     ## $ no_barrier_free_accessible_units <dbl> 2, 0, 0, 42, 0, NA, 14, 0, 0, 1, 25, …
-
-``` r
-glimpse(building_permits)
-```
-
-    ## Rows: 20,680
-    ## Columns: 14
-    ## $ permit_number               <chr> "BP-2016-02248", "BU468090", "DB-2016-0445…
-    ## $ issue_date                  <date> 2017-02-01, 2017-02-01, 2017-02-01, 2017-…
-    ## $ project_value               <dbl> 0, 0, 35000, 15000, 181178, 0, 15000, 0, 6…
-    ## $ type_of_work                <chr> "Salvage and Abatement", "New Building", "…
-    ## $ address                     <chr> "4378 W 9TH AVENUE, Vancouver, BC V6R 2C7"…
-    ## $ project_description         <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-    ## $ building_contractor         <chr> NA, NA, NA, "Mercury Contracting Ltd", "08…
-    ## $ building_contractor_address <chr> NA, NA, NA, "88 W PENDER ST  \r\nUnit 2069…
-    ## $ applicant                   <chr> "Raffaele & Associates DBA: Raffaele and A…
-    ## $ applicant_address           <chr> "2642 East Hastings\r\nVancouver, BC  V5K …
-    ## $ property_use                <chr> "Dwelling Uses", "Dwelling Uses", "Dwellin…
-    ## $ specific_use_category       <chr> "One-Family Dwelling", "Multiple Dwelling"…
-    ## $ year                        <dbl> 2017, 2017, 2017, 2017, 2017, 2017, 2017, …
-    ## $ bi_id                       <dbl> 524, 535, 539, 541, 543, 546, 547, 548, 54…
-
-``` r
-glimpse(parking_meters)
-```
-
-    ## Rows: 10,032
-    ## Columns: 22
-    ## $ meter_head     <chr> "Twin", "Pay Station", "Twin", "Single", "Twin", "Twin"…
-    ## $ r_mf_9a_6p     <chr> "$2.00", "$1.00", "$1.00", "$1.00", "$2.00", "$2.00", "…
-    ## $ r_mf_6p_10     <chr> "$4.00", "$1.00", "$1.00", "$1.00", "$1.00", "$1.00", "…
-    ## $ r_sa_9a_6p     <chr> "$2.00", "$1.00", "$1.00", "$1.00", "$2.00", "$2.00", "…
-    ## $ r_sa_6p_10     <chr> "$4.00", "$1.00", "$1.00", "$1.00", "$1.00", "$1.00", "…
-    ## $ r_su_9a_6p     <chr> "$2.00", "$1.00", "$1.00", "$1.00", "$2.00", "$2.00", "…
-    ## $ r_su_6p_10     <chr> "$4.00", "$1.00", "$1.00", "$1.00", "$1.00", "$1.00", "…
-    ## $ rate_misc      <chr> NA, "$ .50", NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
-    ## $ time_in_effect <chr> "METER IN EFFECT: 9:00 AM TO 10:00 PM", "METER IN EFFEC…
-    ## $ t_mf_9a_6p     <chr> "2 Hr", "10 Hrs", "2 Hr", "2 Hr", "2 Hr", "3 Hr", "2 Hr…
-    ## $ t_mf_6p_10     <chr> "4 Hr", "10 Hrs", "4 Hr", "4 Hr", "4 Hr", "4 Hr", "4 Hr…
-    ## $ t_sa_9a_6p     <chr> "2 Hr", "10 Hrs", "2 Hr", "2 Hr", "2 Hr", "3 Hr", "2 Hr…
-    ## $ t_sa_6p_10     <chr> "4 Hr", "10 Hrs", "4 Hr", "4 Hr", "4 Hr", "4 Hr", "4 Hr…
-    ## $ t_su_9a_6p     <chr> "2 Hr", "10 Hrs", "2 Hr", "2 Hr", "2 Hr", "3 Hr", "2 Hr…
-    ## $ t_su_6p_10     <chr> "4 Hr", "10 Hrs", "4 Hr", "4 Hr", "4 Hr", "4 Hr", "4 Hr…
-    ## $ time_misc      <chr> NA, "No Time Limit", NA, NA, NA, NA, NA, NA, NA, NA, NA…
-    ## $ credit_card    <chr> "No", "Yes", "No", "No", "No", "No", "No", "No", "No", …
-    ## $ pay_phone      <chr> "66890", "59916", "57042", "57159", "51104", "60868", "…
-    ## $ longitude      <dbl> -123.1289, -123.0982, -123.1013, -123.1862, -123.1278, …
-    ## $ latitude       <dbl> 49.28690, 49.27215, 49.25468, 49.26341, 49.26354, 49.27…
-    ## $ geo_local_area <chr> "West End", "Strathcona", "Riley Park", "West Point Gre…
-    ## $ meter_id       <chr> "670805", "471405", "C80145", "D03704", "301023", "5913…
 
 ``` r
 glimpse(vancouver_trees)
@@ -816,16 +770,15 @@ rest of the project, or make modifications!
 
 My research questions:
 
-1.  I want to know if number of units is correlated with number of
+1.  How many buildings have below 50 units and above 50 units?
+2.  I want to know if number of units is correlated with number of
     storeys.  
-2.  After creating a new variable that categorizes the number of
+3.  After creating a new variable that categorizes the number of
     storeys, I want to know how which category has more exterior fire
     escapes.
-3.  I want to create a 2x2 table with the building number of exterior
+4.  I want to create a 2x2 table with the building number of exterior
     fire escape and emergency power to to find out what proportion of
     the buildings have both emergency power and exterior fire escape.
-4.  After categorizing the number of units into 2 categories, if it’s
-    correlated with number of storeys.
 
 # Task 4: Process and summarize your data (13 points)
 
@@ -874,7 +827,83 @@ Ensure that the output of each operation is printed!
 Make sure it’s clear what research question you are doing each operation
 for!
 <!------------------------- Start your work below ----------------------------->
-**Research question 1. I want to know if number of units is correlated
+**Research question 1: How many buildings have below 50 units and above
+50 units? **
+
+*Summarizing* *3. Create a categorical variable with 3 or more groups
+from an existing numerical variable. You can use this new variable in
+the other tasks! An example: age in years into “child, teen, adult,
+senior”.*
+
+``` r
+summary(apt_buildings$no_of_units)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    0.00   25.00   52.00   91.09  124.00 4111.00
+
+``` r
+count(apt_buildings, no_of_units>50)
+```
+
+    ## # A tibble: 2 × 2
+    ##   `no_of_units > 50`     n
+    ##   <lgl>              <int>
+    ## 1 FALSE               1701
+    ## 2 TRUE                1754
+
+``` r
+apt_buildings$no_of_units_cat <- 
+       ifelse(apt_buildings$no_of_units < 50,"1. 0-50 units", "2. Above_50_units")
+
+table(apt_buildings$no_of_units_cat)
+```
+
+    ## 
+    ##     1. 0-50 units 2. Above_50_units 
+    ##              1681              1774
+
+*Graphing* *Create a graph out of summarized variables that has at least
+two geom layers.* Note: I am not sure if it’s layer or not. So just in
+case I created another histogram to get my points.
+
+``` r
+ggplot(apt_buildings, aes(x = year_built)) + 
+    geom_density(aes(group=no_of_units_cat, colour=no_of_units_cat))
+```
+
+    ## Warning: Removed 13 rows containing non-finite values (stat_density).
+
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+``` r
+ggplot(apt_buildings, aes(x=year_built, fill=no_of_units_cat)) +
+   geom_histogram(position="stack", binwidth=30, color="black")
+```
+
+    ## Warning: Removed 13 rows containing non-finite values (stat_bin).
+
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+``` r
+ggplot(apt_buildings, aes(x=year_built, fill=no_of_units_cat)) +
+   geom_histogram(position="stack", binwidth=15, color="black")
+```
+
+    ## Warning: Removed 13 rows containing non-finite values (stat_bin).
+
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-7-2.png)<!-- -->
+
+``` r
+ggplot(apt_buildings, aes(x=year_built, fill=no_of_units_cat)) +
+   geom_histogram(position="stack", binwidth=5, color="black")
+```
+
+    ## Warning: Removed 13 rows containing non-finite values (stat_bin).
+
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-7-3.png)<!-- -->
+
+**Research question 2. I want to know if number of units is correlated
 with number of storeys. ** *Summarizing* *Compute the “range”, “mean”,
 and “two other summary statistics” of “one numerical variable” across
 the groups of “one categorical variable” from your data.*
@@ -903,32 +932,41 @@ quantile(apt_buildings$no_of_units)
 table(apt_buildings$no_of_units_cat)
 ```
 
-    ## Warning: Unknown or uninitialised column: `no_of_units_cat`.
-
-    ## < table of extent 0 >
+    ## 
+    ##     1. 0-50 units 2. Above_50_units 
+    ##              1681              1774
 
 ``` r
 round(prop.table(table(apt_buildings$no_of_units_cat))*100, 2)
 ```
 
-    ## Warning: Unknown or uninitialised column: `no_of_units_cat`.
-
-    ## numeric(0)
+    ## 
+    ##     1. 0-50 units 2. Above_50_units 
+    ##             48.65             51.35
 
 *Graphing* *6. Create a graph of your choosing, make one of the axes
 logarithmic, and format the axes labels so that they are “pretty” or
 easier to read.*
 
+``` r
+ggplot(apt_buildings) +
+  geom_point(aes(no_of_units, no_of_storeys, alpha=0.5)) +
+  scale_x_log10(label=label_number(suffix = " units"))
+```
 
-    ggplot(apt_buildings) +
-      geom_point(aes(no_of_units, no_of_storeys, alpha=0.5)) +
-      scale_x_log10(label=label_number(suffix = " units"))
+    ## Warning: Transformation introduced infinite values in continuous x-axis
 
-    ggplot(apt_buildings) +
-      geom_point(aes(no_of_units, no_of_storeys, alpha=0.5))
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
-                                                                                                            **Research question 2. After creating a new variable that categorizes the number of storeys, I want to know which category has more exterior fire escapes. **                                                                                                    
+``` r
+ggplot(apt_buildings) +
+  geom_point(aes(no_of_units, no_of_storeys, alpha=0.5))
+```
 
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
+**Research question 3. After creating a new variable that categorizes
+the number of storeys, I want to know which category has more exterior
+fire escapes. **  
 *Summarizing*  
 *3. Create a categorical variable with 3 or more groups from an existing
 numerical variable. You can use this new variable in the other tasks! An
@@ -970,11 +1008,16 @@ table(apt_buildings$no_of_storeys_cat)
 *Graphing* *7. Make a graph where it makes sense to customize the alpha
 transparency.*
 
+``` r
+ggplot(apt_buildings, aes(no_of_storeys_cat, year_built)) + 
+    geom_jitter(width=0.1, alpha = 0.3)
+```
 
-    ggplot(apt_buildings, aes(no_of_storeys_cat, year_built)) + 
-        geom_jitter(width=0.1, alpha = 0.3)
+    ## Warning: Removed 13 rows containing missing values (geom_point).
 
-**Research question 3. I want to create a 2x2 table with the building
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
+**Research question 4. I want to create a 2x2 table with the building
 number of exterior fire escape and emergency power to to find out what
 proportion of the buildings have both emergency power and exterior fire
 escape. **
@@ -983,78 +1026,57 @@ escape. **
 statistics” of “one numerical variable” across the groups of “one
 categorical variable” from your data.*
 
-    table(apt_buildings$exterior_fire_escape, apt_buildings$emergency_power)
-    prop.table(table(apt_buildings$exterior_fire_escape, apt_buildings$emergency_power))*100
+``` r
+table(apt_buildings$exterior_fire_escape, apt_buildings$emergency_power)
+```
+
+    ##      
+    ##         NO  YES
+    ##   NO  1551 1231
+    ##   YES  371  204
+
+``` r
+prop.table(table(apt_buildings$exterior_fire_escape, apt_buildings$emergency_power))*100
+```
+
+    ##      
+    ##              NO       YES
+    ##   NO  46.201966 36.669646
+    ##   YES 11.051534  6.076854
 
 *Graphing* *8. Create 3 histograms out of summarized variables, with
 each histogram having different sized bins. Pick the “best” one and
 explain why it is the best.*
 
-     
-    ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
-       geom_histogram(position="stack", binwidth=20)
-        
-    ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
-       geom_histogram(position="stack", binwidth=10)    
+``` r
+ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
+   geom_histogram(position="stack", binwidth=20)
+```
 
-    ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
-       geom_histogram(position="stack", binwidth=1) 
+    ## Warning: Removed 13 rows containing non-finite values (stat_bin).
+
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+
+``` r
+ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
+   geom_histogram(position="stack", binwidth=10)    
+```
+
+    ## Warning: Removed 13 rows containing non-finite values (stat_bin).
+
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-13-2.png)<!-- -->
+
+``` r
+ggplot(apt_buildings, aes(x=year_built, fill=exterior_fire_escape)) +
+   geom_histogram(position="stack", binwidth=1) 
+```
+
+    ## Warning: Removed 13 rows containing non-finite values (stat_bin).
+
+![](UyangaGanbatMDA1_files/figure-gfm/unnamed-chunk-13-3.png)<!-- -->
 
 I chose binwidth 10, because it looks better and gives me a bar
 representing each 10 year.
-
-**Research question 4: After categorizing the number of units into 2
-categories, if it’s correlated with number of storeys. **
-
-*Summarizing* *3. Create a categorical variable with 3 or more groups
-from an existing numerical variable. You can use this new variable in
-the other tasks! An example: age in years into “child, teen, adult,
-senior”.*
-
-``` r
-summary(apt_buildings$no_of_units)
-```
-
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##    0.00   25.00   52.00   91.09  124.00 4111.00
-
-``` r
-count(apt_buildings, no_of_units>50)
-```
-
-    ## # A tibble: 2 × 2
-    ##   `no_of_units > 50`     n
-    ##   <lgl>              <int>
-    ## 1 FALSE               1701
-    ## 2 TRUE                1754
-
-``` r
-apt_buildings$no_of_units_cat <- 
-       ifelse(apt_buildings$no_of_units < 50,"1. 0-50 units", "2. Above_50_units")
-
-table(apt_buildings$no_of_units_cat)
-```
-
-    ## 
-    ##     1. 0-50 units 2. Above_50_units 
-    ##              1681              1774
-
-*Graphing* *Create a graph out of summarized variables that has at least
-two geom layers.* Note: I am not sure if it’s layer or not. So just in
-case I created another histogram to get my points.
-
-
-    ggplot(apt_buildings, aes(x = year_built)) + 
-        geom_density(aes(group=no_of_units_cat, colour=no_of_units_cat))
-
-    ggplot(apt_buildings, aes(x=year_built, fill=no_of_units_cat)) +
-       geom_histogram(position="stack", binwidth=30, color="black")
-        
-    ggplot(apt_buildings, aes(x=year_built, fill=no_of_units_cat)) +
-       geom_histogram(position="stack", binwidth=15, color="black")
-       
-    ggplot(apt_buildings, aes(x=year_built, fill=no_of_units_cat)) +
-       geom_histogram(position="stack", binwidth=5, color="black")
 
 ### 1.2 (3 points)
 
