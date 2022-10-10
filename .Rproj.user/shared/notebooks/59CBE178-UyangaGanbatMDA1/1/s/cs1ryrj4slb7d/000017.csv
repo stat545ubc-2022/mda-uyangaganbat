@@ -1,0 +1,11 @@
+"0",""
+"0","#1. Plotting the distribution of a numeric variable#"
+"0","apt_buildings %>% "
+"0","  ggplot() + "
+"0","  geom_histogram(aes(year_built, fill=exterior_fire_escape, na.rm=FALSE), position=""stack"", binwidth = 5)"
+"2","Warning:"
+"2"," Ignoring unknown aesthetics: na.rm
+"
+"2","Warning:"
+"2"," Removed 13 rows containing non-finite values (stat_bin).
+"

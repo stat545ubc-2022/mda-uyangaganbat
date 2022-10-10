@@ -1,0 +1,84 @@
+"0","glimpse(apt_buildings)
+"
+"1","Rows: 3,455"
+"1",""
+"1","
+"
+"1","Columns: 39"
+"1",""
+"1","
+"
+"1","$ id                               [3m[38;5;246m<dbl>[39m[23m 10359, 10360, 10361, 10362, 10363, 10364, 10365, 10366, 10367, 10368, 10369, 10370, 1037…
+$ air_conditioning                 [3m[38;5;246m<chr>[39m[23m ""NONE"", ""NONE"", ""NONE"", ""NONE"", ""NONE"", ""NONE"", ""NONE"", ""CENTRAL AIR"", ""NONE"", ""NONE"", ""…
+$ amenities                        [3m[38;5;246m<chr>[39m[23m ""Outdoor rec facilities"", ""Outdoor pool"", NA, NA, NA, NA, NA, ""Indoor pool , Indoor recr…
+$ balconies                        [3m[38;5;246m<chr>[39m[23m ""YES"", ""YES"", ""YES"", ""YES"", ""NO"", ""NO"", ""NO"", ""YES"", ""YES"", ""YES"", ""NO"", ""YES"", ""YES"", ""…
+$ barrier_free_accessibilty_entr   [3m[38;5;246m<chr>[39m[23m ""YES"", ""NO"", ""NO"", ""YES"", ""NO"", ""NO"", ""YES"", ""NO"", ""YES"", ""YES"", ""YES"", ""NO"", ""YES"", ""NO…
+$ bike_parking                     [3m[38;5;246m<chr>[39m[23m ""0 indoor parking spots and 10 outdoor parking spots"", ""0 indoor parking spots and 34 ou…
+$ exterior_fire_escape             [3m[38;5;246m<chr>[39m[23m ""NO"", ""NO"", ""NO"", ""YES"", ""NO"", NA, ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"",…
+$ fire_alarm                       [3m[38;5;246m<chr>[39m[23m ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES…
+$ garbage_chutes                   [3m[38;5;246m<chr>[39m[23m ""YES"", ""YES"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""YES"", ""YES"", ""NO"", ""NO"", ""YES"", ""NO"", ""NO"",…
+$ heating_type                     [3m[38;5;246m<chr>[39m[23m ""HOT WATER"", ""HOT WATER"", ""HOT WATER"", ""HOT WATER"", ""HOT WATER"", ""HOT WATER"", ""HOT WATER…
+$ intercom                         [3m[38;5;246m<chr>[39m[23m ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES…
+$ laundry_room                     [3m[38;5;246m<chr>[39m[23m ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES…
+$ locker_or_storage_room           [3m[38;5;246m<chr>[39m[23m ""NO"", ""YES"", ""YES"", ""YES"", ""NO"", ""YES"", ""YES"", ""YES"", ""NO"", ""NO"", ""YES"", ""YES"", ""YES"", ""…
+$ no_of_elevators                  [3m[38;5;246m<dbl>[39m[23m 3, 3, 0, 1, 0, 0, 0, 2, 4, 2, 0, 2, 2, 1, 2, 0, 2, 0, 3, 1, 3, 0, 2, 0, 2, 2, 3, 2, 2, 2…
+$ parking_type                     [3m[38;5;246m<chr>[39m[23m ""Underground Garage , Garage accessible thru buildg"", ""Underground Garage , Garage acces…
+$ pets_allowed                     [3m[38;5;246m<chr>[39m[23m ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""NO"", ""YES""…
+$ prop_management_company_name     [3m[38;5;246m<chr>[39m[23m NA, ""SCHICKEDANZ BROS. PROPERTIES"", NA, ""FREIMAN INVESTMENTS"", NA, ""GILINDO MARCOCCHIO L…
+$ property_type                    [3m[38;5;246m<chr>[39m[23m ""PRIVATE"", ""PRIVATE"", ""PRIVATE"", ""PRIVATE"", ""PRIVATE"", ""PRIVATE"", ""PRIVATE"", ""PRIVATE"", …
+$ rsn                              [3m[38;5;246m<dbl>[39m[23m 4154812, 4154815, 4155295, 4155309, 4155318, 4155322, 4155325, 4155928, 4155952, 4155991…
+$ separate_gas_meters              [3m[38;5;246m<chr>[39m[23m ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO""…
+$ separate_hydro_meters            [3m[38;5;246m<chr>[39m[23m ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""YES"", ""NO"", ""NO"", ""YES"", ""YES"",…
+$ separate_water_meters            [3m[38;5;246m<chr>[39m[23m ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO""…
+$ site_address                     [3m[38;5;246m<chr>[39m[23m ""65  FOREST MANOR RD"", ""70  CLIPPER RD"", ""2651  BLOOR ST W"", ""22  BURNHAMTHORPE RD"", ""18…
+$ sprinkler_system                 [3m[38;5;246m<chr>[39m[23m ""YES"", ""YES"", ""NO"", ""YES"", ""NO"", ""NO"", ""NO"", ""YES"", ""YES"", ""YES"", ""NO"", ""YES"", ""YES"", ""N…
+$ visitor_parking                  [3m[38;5;246m<chr>[39m[23m ""PAID"", ""FREE"", ""UNAVAILABLE"", ""UNAVAILABLE"", ""UNAVAILABLE"", ""UNAVAILABLE"", ""PAID"", ""FRE…
+$ ward                             [3m[38;5;246m<chr>[39m[23m ""17"", ""17"", ""03"", ""03"", ""02"", ""02"", ""02"", ""02"", ""13"", ""07"", ""09"", ""20"", ""20"", ""20"", ""21""…
+$ window_type                      [3m[38;5;246m<chr>[39m[23m ""DOUBLE PANE"", ""DOUBLE PANE"", ""DOUBLE PANE"", ""DOUBLE PANE"", ""DOUBLE PANE"", ""SINGLE PANE""…
+$ year_built                       [3m[38;5;246m<dbl>[39m[23m 1967, 1970, 1927, 1959, 1943, 1952, 1959, 1971, 1969, 1972, 1945, 1968, 1959, 1958, 1960…
+$ year_registered                  [3m[38;5;246m<dbl>[39m[23m 2017, 2017, 2017, 2017, 2017, NA, 2017, 2017, 2017, 2017, 2018, 2017, 2017, 2018, 2017, …
+$ no_of_storeys                    [3m[38;5;246m<dbl>[39m[23m 17, 14, 4, 5, 4, 4, 4, 7, 32, 4, 4, 7, 5, 6, 7, 3, 10, 3, 12, 4, 18, 3, 7, 3, 15, 12, 6,…
+$ emergency_power                  [3m[38;5;246m<chr>[39m[23m ""NO"", ""YES"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""YES"", ""NO"", ""YES"", ""YES"", ""NO"", ""NO"", ""NO"", …
+$ `non-smoking_building`           [3m[38;5;246m<chr>[39m[23m ""YES"", ""NO"", ""YES"", ""YES"", ""YES"", ""NO"", ""NO"", ""YES"", ""NO"", ""YES"", ""NO"", ""YES"", ""NO"", ""YE…
+$ no_of_units                      [3m[38;5;246m<dbl>[39m[23m 218, 206, 34, 42, 25, 34, 14, 105, 571, 171, 26, 169, 87, 79, 71, 12, 105, 12, 235, 44, …
+$ no_of_accessible_parking_spaces  [3m[38;5;246m<dbl>[39m[23m 8, 10, 20, 42, 12, 0, 5, 1, 1, 6, 12, 0, 1, NA, 2, 12, 4, 12, 0, 0, 2, 12, 0, NA, 0, 4, …
+$ facilities_available             [3m[38;5;246m<chr>[39m[23m ""Recycling bins"", ""Green Bin / Organics"", ""Green Bin / Organics"", ""Green Bin / Organics""…
+$ cooling_room                     [3m[38;5;246m<chr>[39m[23m ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO"", ""NO""…
+$ no_barrier_free_accessible_units [3m[38;5;246m<dbl>[39m[23m 2, 0, 0, 42, 0, NA, 14, 0, 0, 1, 25, 0, 0, NA, 0, 0, 0, 0, 235, 0, 0, 0, 0, NA, 0, 88, 4…
+$ no_of_units_cat                  [3m[38;5;246m<chr>[39m[23m ""2. Above_50_units"", ""2. Above_50_units"", ""1. 0-50 units"", ""1. 0-50 units"", ""1. 0-50 uni…
+$ no_of_storeys_cat                [3m[38;5;246m<chr>[39m[23m ""3. 10-20_stories"", ""3. 10-20_stories"", ""1. Less_than_5_stories"", ""2. 5-10_stories"", ""1.…"
+"1",""
+"1","
+"
+"0","glimpse(vancouver_trees)"
+"1","Rows: 146,611"
+"1",""
+"1","
+"
+"1","Columns: 20"
+"1",""
+"1","
+"
+"1","$ tree_id            [3m[38;5;246m<dbl>[39m[23m 149556, 149563, 149579, 149590, 149604, 149616, 149617, 149618, 149619, 149625, 149626, 149636, 149640…
+$ civic_number       [3m[38;5;246m<dbl>[39m[23m 494, 450, 4994, 858, 5032, 585, 4909, 4925, 4969, 720, 736, 812, 6968, 505, 509, 5208, 5241, 5311, 701…
+$ std_street         [3m[38;5;246m<chr>[39m[23m ""W 58TH AV"", ""W 58TH AV"", ""WINDSOR ST"", ""E 39TH AV"", ""WINDSOR ST"", ""W 61ST AV"", ""SHERBROOKE ST"", ""SHER…
+$ genus_name         [3m[38;5;246m<chr>[39m[23m ""ULMUS"", ""ZELKOVA"", ""STYRAX"", ""FRAXINUS"", ""ACER"", ""PYRUS"", ""ACER"", ""ACER"", ""ACER"", ""FRAXINUS"", ""TILIA""…
+$ species_name       [3m[38;5;246m<chr>[39m[23m ""AMERICANA"", ""SERRATA"", ""JAPONICA"", ""AMERICANA"", ""CAMPESTRE"", ""CALLERYANA"", ""PLATANOIDES"", ""PLATANOIDE…
+$ cultivar_name      [3m[38;5;246m<chr>[39m[23m ""BRANDON"", NA, NA, ""AUTUMN APPLAUSE"", NA, ""CHANTICLEER"", ""COLUMNARE"", ""COLUMNARE"", ""COLUMNARE"", ""AUTUM…
+$ common_name        [3m[38;5;246m<chr>[39m[23m ""BRANDON ELM"", ""JAPANESE ZELKOVA"", ""JAPANESE SNOWBELL"", ""AUTUMN APPLAUSE ASH"", ""HEDGE MAPLE"", ""CHANTIC…
+$ assigned           [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"", ""Y"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""Y"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N…
+$ root_barrier       [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N"", ""N…
+$ plant_area         [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""4"", ""4"", ""4"", ""B"", ""6"", ""6"", ""3"", ""3"", ""5"", ""3"", ""N"", ""3"", ""2"", ""4"", ""4"", ""4"", ""N"", ""N"", ""3…
+$ on_street_block    [3m[38;5;246m<dbl>[39m[23m 400, 400, 4900, 800, 5000, 500, 4900, 4900, 4900, 700, 700, 800, 6900, 500, 500, 5200, 5200, 5300, 700…
+$ on_street          [3m[38;5;246m<chr>[39m[23m ""W 58TH AV"", ""W 58TH AV"", ""WINDSOR ST"", ""E 39TH AV"", ""WINDSOR ST"", ""W 61ST AV"", ""SHERBROOKE ST"", ""SHER…
+$ neighbourhood_name [3m[38;5;246m<chr>[39m[23m ""MARPOLE"", ""MARPOLE"", ""KENSINGTON-CEDAR COTTAGE"", ""KENSINGTON-CEDAR COTTAGE"", ""KENSINGTON-CEDAR COTTAG…
+$ street_side_name   [3m[38;5;246m<chr>[39m[23m ""EVEN"", ""EVEN"", ""EVEN"", ""EVEN"", ""EVEN"", ""ODD"", ""ODD"", ""ODD"", ""ODD"", ""EVEN"", ""EVEN"", ""EVEN"", ""EVEN"", ""O…
+$ height_range_id    [3m[38;5;246m<dbl>[39m[23m 2, 4, 3, 4, 2, 2, 3, 3, 2, 2, 2, 5, 3, 2, 2, 2, 2, 2, 3, 2, 2, 3, 2, 2, 2, 4, 4, 4, 3, 5, 2, 2, 2, 3, …
+$ diameter           [3m[38;5;246m<dbl>[39m[23m 10.00, 10.00, 4.00, 18.00, 9.00, 5.00, 15.00, 14.00, 16.00, 7.50, 7.75, 16.00, 18.00, 4.50, 8.00, 4.00…
+$ curb               [3m[38;5;246m<chr>[39m[23m ""N"", ""N"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y"", ""Y…
+$ date_planted       [3m[38;5;246m<date>[39m[23m 1999-01-13, 1996-05-31, 1993-11-22, 1996-04-29, 1993-12-17, NA, 1993-12-16, 1993-12-16, 1993-12-16, 1…
+$ longitude          [3m[38;5;246m<dbl>[39m[23m -123.1161, -123.1147, -123.0846, -123.0870, -123.0846, -123.1196, -123.0813, -123.0813, -123.0813, -12…
+$ latitude           [3m[38;5;246m<dbl>[39m[23m 49.21776, 49.21776, 49.23938, 49.23469, 49.23894, 49.21513, 49.23998, 49.23972, 49.23951, 49.23472, 49…"
+"1",""
+"1","
+"
